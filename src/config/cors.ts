@@ -8,7 +8,8 @@ export const corsConfig: CorsOptions = {
         if (process.argv[2] === '--api') {
             whiteList.push(undefined) // el origin de postman, es undefined
         }
-        
+        console.log(origin)
+        console.log(process.env.FRONTEND_URL)
         // if (whiteList.includes(origin)) {
         if (origin === process.env.FRONTEND_URL) {
             callback(null, true)
