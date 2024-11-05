@@ -17,7 +17,7 @@ export class AuthEmail {
             text: 'UpTask - Confirma tu cuenta',
             html: `<p>Hola: ${user.user} has creado tu cuenta en UpTask, ya casi está todo listo, sólo debes confirmar tu cuenta</p>
                     <p>Visita el siguiente enlace: </p>
-                    <a href=${process.env.FRONTEND_URL}/auth/confirm-account>Confirmar cuenta</a>
+                    <a href=${process.env.FRONTEND_URL_EMAIL}/auth/confirm-account>Confirmar cuenta</a>
                     <p>Tu código de confirmación es: <b>${user.token}</b></p>
                     <p>Este token expira en 10 minutos</p>`
         })
@@ -33,7 +33,7 @@ export class AuthEmail {
             text: 'UpTask - Reestablece tu contraseña',
             html: `<p>Hola: ${user.user} has solicitado reestablecer tu contraseña</p>
                     <p>Visita el siguiente enlace: </p>
-                    <a href=${process.env.FRONTEND_URL}/auth/new-password>Reestablece tu contraseña</a>
+                    <a href=${process.env.FRONTEND_URL_EMAIL}/auth/new-password>Reestablece tu contraseña</a>
                     <p>Tu código de confirmación es: <b>${user.token}</b></p>
                     <p>Este token expira en 10 minutos</p>`
         })
