@@ -1,4 +1,6 @@
 import { transporter } from "../config/nodemailer"
+import dotenv from "dotenv"
+dotenv.config()
 
 interface IEmail {
     email: string
@@ -9,7 +11,7 @@ interface IEmail {
 export class AuthEmail {
     static sendConfirmationEmail = async (user : IEmail) => {
         const info = await transporter.sendMail({
-            from: 'UpTask <admin@uptask.com>',
+            from: `UpTask <${process.env.SMTP_EMAIL_FROM}>`,
             to: user.email,
             subject: 'UpTask - Confirma tu cuenta',
             text: 'UpTask - Confirma tu cuenta',
@@ -25,7 +27,7 @@ export class AuthEmail {
 
     static sendPasswordResetToken = async (user : IEmail) => {
         const info = await transporter.sendMail({
-            from: 'UpTask <admin@uptask.com>',
+            from: `UpTask <${process.env.SMTP_EMAIL_FROM}>`,
             to: user.email,
             subject: 'UpTask - Reestablece tu contraseña',
             text: 'UpTask - Reestablece tu contraseña',
